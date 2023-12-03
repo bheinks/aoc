@@ -1,16 +1,4 @@
 input = File.read(File.join(File.dirname(__FILE__), "input"))
-digit_map = {
-    "one" => 1,
-    "two" => 2,
-    "three" => 3,
-    "four" => 4,
-    "five" => 5,
-    "six" => 6,
-    "seven" => 7,
-    "eight" => 8,
-    "nine" => 9,
-}
-digit_pattern = /(?=(\d|#{digit_map.keys.join('|')}))/
 
 def part_1(input)
     input.each_line.map do |line|
@@ -19,7 +7,20 @@ def part_1(input)
     end.sum
 end
 
-def part_2(input, digit_pattern, digit_map)
+def part_2(input)
+    digit_map = {
+        "one" => 1,
+        "two" => 2,
+        "three" => 3,
+        "four" => 4,
+        "five" => 5,
+        "six" => 6,
+        "seven" => 7,
+        "eight" => 8,
+        "nine" => 9,
+    }
+    digit_pattern = /(?=(\d|#{digit_map.keys.join('|')}))/
+
     input.each_line.map do |line|
         digits = line.scan(digit_pattern).flatten.map do |digit|
             digit_map.fetch(digit, digit.to_i)
@@ -29,4 +30,4 @@ def part_2(input, digit_pattern, digit_map)
 end
 
 p part_1 input
-p part_2 input, digit_pattern, digit_map
+p part_2 input
