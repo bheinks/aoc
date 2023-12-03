@@ -8,17 +8,7 @@ def part_1(input)
 end
 
 def part_2(input)
-    digit_map = {
-        "one" => 1,
-        "two" => 2,
-        "three" => 3,
-        "four" => 4,
-        "five" => 5,
-        "six" => 6,
-        "seven" => 7,
-        "eight" => 8,
-        "nine" => 9,
-    }
+    digit_map = %w(one two three four five six seven eight nine).map.with_index{|d, i| [d, i+1]}.to_h
     digit_pattern = /(?=(\d|#{digit_map.keys.join('|')}))/
 
     input.each_line.map do |line|
