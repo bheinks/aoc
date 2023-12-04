@@ -3,7 +3,7 @@ MAX_GREEN_CUBES = 13
 MAX_BLUE_CUBES = 14
 GAME_PATTERN = /\d+ (?:red|green|blue)/
 
-input = File.read(File.join(File.dirname(__FILE__), "input"))
+input = File.read File.join(File.dirname(__FILE__), "input")
 
 def game_possible?(line)
   game_id, games = line.split(": ")

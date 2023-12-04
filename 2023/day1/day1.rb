@@ -1,4 +1,4 @@
-input = File.read(File.join(File.dirname(__FILE__), "input"))
+input = File.read File.join(File.dirname(__FILE__), "input")
 
 def part_1(input)
   input.each_line.map do |line|
