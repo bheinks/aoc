@@ -5,7 +5,7 @@ def part_1(left, right)
 end
 
 def part_2(left, right)
-  left.reduce(0) { |sum, n| sum += n * right.count(n) }
+  left.sum { |n| n * right.count(n) }
 end
 
 left = []
